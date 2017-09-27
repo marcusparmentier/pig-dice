@@ -13,25 +13,26 @@
         <h1>Pig Dice</h1>
       </div>
       <div class="row">
-        <button type="button" name="btnRoll">Roll</button>
-        <button type="button" name="btnHold">Hold</button>
+        <button id="roll" type="button" name="btnRoll">Roll</button>
+        <button id="hold" type="submit" name="btnHold">Hold</button>
       </div>
       <div class="row">
         <div class="Player1">
-          <img src="" alt="">
-          <ul>
-            <li>total display player</li>
-          </ul>
-        </div>
-        <div class="Player2">
-          <ul>
-            <li>total display player 2</li>
-          </ul>
-
+          <label for="characterName">Enter Your Character Name Here</label>
+            <input id="playerOneName" type="text">
+            <img src="" alt="">
+          <h1>Point Total </h1>
+          <output id= "roll-total" class="form-control" style="width:15%" type="text"></output>
+          </div>
+          <div class="Player2">
+            <label for="characterName">Enter Your Character Name Here</label>
+            <input id="playerOneName" type="text">
+            <img src="" alt="">
+          <h1>Point Total </h1>
+          <output class="form-control" style="width:15%" type="text"></output>
+          </div>
         </div>
       </div>
-
     </div>
-
   </body>
 </html>
