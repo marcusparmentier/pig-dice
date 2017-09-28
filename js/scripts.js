@@ -4,7 +4,7 @@
 
 function Player (name, pointTotal) {
   this.name = name;
-  this.pointTotal = [];
+  this.pointTotal = 0;
 }
 
 Player.prototype.getPointTotal = function() {
@@ -18,19 +18,39 @@ function Turn () {
   this.roundTotal = 0;
 }
 
-Game.prototype.changePlayer = function () {
-  if (this.currentPlayer.name === "playerOne")
-    return
+Turn.prototype.changePlayer = function () {
+  if (this.currentPlayer.name === "playerOne") {
+    return this.currentPlayer.name = this.playerTwo;
+  }
+  else {
+    return this.currentPlayer.name = this.playerOne;
+  }
 }
 
 // Player.prototype.displayTotal = function() {
 //   for (i = 1; i <= ; i++)
 //   return this.displayDetails();
 // }
-var randomRoll = Math.floor(Math.random() * 6) + 1;
+//var randomRoll = Math.floor(Math.random() * 6) + 1;
 
-function Roll () {
-  return Math.random();
+Turn.prototype.roll = function () {
+  var randomRoll = Math.floor(Math.random() * 6) + 1;
+
+  if (randomRoll === 1) {
+    this.roundTotal = 0;
+    this.changePlayer();
+  }
+  else {
+    this.roundTotal += randomRoll;
+  }
+  return randomRoll;
+};
+
+Turn.prototype.hold = function() {
+  this.currentPlayer.pointTotal += this.roundTotal
+  this.changePlayer();
+  this.roundTotal = 0;
+}
 
   // for (i = 1; i <= randomRoll; i++) {
   // } if (i === 1) {
@@ -40,14 +60,31 @@ var currentTurn = new Turn();
 //User interface logic*****************************************************
 $(document).ready(function() {
   $("#roll").click(function(event) {
-    var playerOneTurn = Roll();
+    $("#currentRollDisplay").text(Turn.prototype.roll());
+    $("#round-total1").text(currentTurn.roundTotal());
+    $("#round-total2").text(currentTurn.roundTotal());
 
-    event.preventDefault();
-
-    $("output#roll-total").append(randomRoll);
+  });
+    $("#hold").click(function(event) {
+      currentTurn.hold();
+      $("#gameTotal1").text(currentTurn.playerOne.pointTotal());
+      $("#gameTotal2").text(currentTurn.playerTwo.pointTotal());
+    });
   });
 
-  // $("#hold").submit(function(event) {
-  // });
 
-});
+  //event.preventDefault();
+    // if (this.currentPlayer. === "playerOne") {
+    //   $("output#roll-total1").text(Turn.prototype.roll());
+    // }
+    // else if (this.currentPlayer === "playerTwo") {
+    //   $("output#roll-total2").text(Turn.prototype.roll());
+    // }
+
+
+
+//     event.preventDefault();
+//     $("#hold").submit(function(event) {
+//    });
+//  });
+// });
