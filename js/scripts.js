@@ -20,10 +20,10 @@ function Turn () {
 
 Turn.prototype.changePlayer = function () {
   if (this.currentPlayer.name === "playerOne") {
-    return this.currentPlayer.name = this.playerTwo;
+    return this.currentPlayer = this.playerTwo;
   }
   else {
-    return this.currentPlayer.name = this.playerOne;
+    return this.currentPlayer = this.playerOne;
   }
 }
 
@@ -31,7 +31,7 @@ Turn.prototype.changePlayer = function () {
 //   for (i = 1; i <= ; i++)
 //   return this.displayDetails();
 // }
-//var randomRoll = Math.floor(Math.random() * 6) + 1;
+
 
 Turn.prototype.roll = function () {
   var randomRoll = Math.floor(Math.random() * 6) + 1;
@@ -47,7 +47,7 @@ Turn.prototype.roll = function () {
 };
 
 Turn.prototype.hold = function() {
-  this.currentPlayer.pointTotal += this.roundTotal
+  this.currentPlayer.pointTotal += this.roundTotal;
   this.changePlayer();
   this.roundTotal = 0;
 }
@@ -56,19 +56,20 @@ Turn.prototype.hold = function() {
   // } if (i === 1) {
   //   randomRoll + 0
   // } else if (i + )
+
 var currentTurn = new Turn();
 //User interface logic*****************************************************
 $(document).ready(function() {
   $("#roll").click(function(event) {
-    $("#currentRollDisplay").text(Turn.prototype.roll());
-    $("#round-total1").text(currentTurn.roundTotal());
-    $("#round-total2").text(currentTurn.roundTotal());
+    $("#currentRollDisplay").text(currentTurn.roll());
+    $("#round-total1").text(currentTurn.roundTotal);
+    $("#round-total2").text(currentTurn.roundTotal);
 
   });
     $("#hold").click(function(event) {
       currentTurn.hold();
-      $("#gameTotal1").text(currentTurn.playerOne.pointTotal());
-      $("#gameTotal2").text(currentTurn.playerTwo.pointTotal());
+      $("#gameTotal1").text(currentTurn.playerOne.pointTotal);
+      $("#gameTotal2").text(currentTurn.playerTwo.pointTotal);
     });
   });
 
