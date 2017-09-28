@@ -1,0 +1,22 @@
+body {
+  background-image: url("../img/background.jpg");
+  background-repeat: space;
+  background-size: cover;
+  color: #FF69B4;
+  font-size: 32px;
+}
+
+.jumbotron {
+
+  text-align: center;
+  background-image: url("../img/pigrun.webp");
+  background-repeat: round;
+  color: #FF69B4;
+}
+
+.jumbotron h1 {
+  font-size: 200px;
+}
+#myCarousel {
+  min-width: 50%;
+}
