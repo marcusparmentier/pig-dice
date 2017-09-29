@@ -66,12 +66,16 @@ $(document).ready(function() {
     $("#round-total2").text(currentTurn.roundTotal);
 
   });
-    $("#hold").click(function(event) {
-      currentTurn.hold();
-      $("#gameTotal1").text(currentTurn.playerOne.pointTotal);
-      $("#gameTotal2").text(currentTurn.playerTwo.pointTotal);
-    });
+  $("#hold").click(function(event) {
+    currentTurn.hold();
+    $("#gameTotal1").text(currentTurn.playerOne.pointTotal);
+    $("#gameTotal2").text(currentTurn.playerTwo.pointTotal);
   });
+
+  document.getElementById("CpU").onclick = function () {
+    location.href = "CPU.html";
+  };
+});
 
 
   //event.preventDefault();
