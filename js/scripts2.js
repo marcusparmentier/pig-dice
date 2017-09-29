@@ -1,12 +1,11 @@
 //Business logic*********************************************************
 
-var roundTotal = [];
+var roundTotal = 0;
 
 var roll = function () {
   var randomRoll = Math.floor(Math.random() * 6) + 1;
   var total = 0;
-  total += randomRoll;
-  roundTotal.push(total);
+  roundTotal += randomRoll;
   return randomRoll;
 };
 
